@@ -1,0 +1,152 @@
+/* Tema gelap biru malam dengan aksen tosca dan oranye hangat, kartu bergaya kaca (glassmorphism) */
+
+:root {
+  --latar: #07131a;
+  --tosca: #2dd4bf;
+  --oranye: #ff9f5a;
+  --teks: #e8f1f2;
+  --teks-redup: #9fb3b8;
+  --kaca: rgba(255, 255, 255, 0.06);
+  --garis-kaca: rgba(255, 255, 255, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* supaya judul bagian tidak tertutup navbar */
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--teks);
+  background-color: var(--latar);
+  background-image:
+    radial-gradient(60rem 40rem at 85% -10%, rgba(45, 212, 191, 0.22), transparent 60%),
+    radial-gradient(50rem 35rem at -10% 45%, rgba(255, 159, 90, 0.12), transparent 60%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, .merek {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+.teks-redup { color: var(--teks-redup); }
+
+/* Cadangan: tetap menyembunyikan elemen walau Bootstrap gagal dimuat dari CDN */
+.d-none { display: none !important; }
+
+/* Navbar */
+.nav-kaca {
+  background: rgba(11, 10, 20, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--garis-kaca);
+}
+.merek { font-weight: 700; letter-spacing: 0.02em; }
+.nav-link { color: var(--teks-redup); }
+.nav-link:hover, .nav-link:focus { color: var(--tosca); }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 7rem 0 4rem;
+}
+.hero-judul {
+  font-size: clamp(2.6rem, 8vw, 5.8rem);
+  line-height: 1.05;
+  font-weight: 700;
+  max-width: 14ch;
+  letter-spacing: -0.02em;
+}
+
+/* Tombol bergaya kotak seperti referensi */
+.btn-utama, .btn-garis {
+  border-radius: 0;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+}
+.btn-utama {
+  background: var(--tosca);
+  border: 1px solid var(--tosca);
+  color: #04201c;
+}
+.btn-utama:hover, .btn-utama:focus { background: var(--oranye); border-color: var(--oranye); color: #2a1604; }
+.btn-garis {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: var(--teks);
+}
+.btn-garis:hover, .btn-garis:focus { background: rgba(255, 255, 255, 0.1); color: #fff; border-color: #fff; }
+
+/* Bagian */
+.bagian { padding: 4.5rem 0; }
+.judul-bagian {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.judul-bagian::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 0.6rem;
+  background: linear-gradient(90deg, var(--tosca), var(--oranye));
+}
+
+/* Kartu kaca */
+.kartu-kaca {
+  background: var(--kaca);
+  border: 1px solid var(--garis-kaca);
+  border-radius: 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.kartu-item {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.kartu-item:hover { transform: translateY(-4px); border-color: rgba(45, 212, 191, 0.55); }
+.kartu-item img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.kartu-isi { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
+.kartu-isi h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.kartu-isi p { color: var(--teks-redup); font-size: 0.95rem; }
+.kartu-aksi { margin-top: auto; padding-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.kartu-aksi .btn { padding: 0.4rem 1rem; font-size: 0.9rem; }
+
+.lencana {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  margin: 0 0.35rem 0.35rem 0;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  color: var(--tosca);
+  border: 1px solid rgba(45, 212, 191, 0.4);
+  background: rgba(45, 212, 191, 0.08);
+}
+
+/* Skill */
+.skill {
+  padding: 1.1rem 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+.skill small { display: block; font-size: 0.75rem; color: var(--teks-redup); font-weight: 400; }
+.skill-belajar { border-style: dashed; }
+
+/* Kaki halaman */
+.kaki {
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--teks-redup);
+  border-top: 1px solid var(--garis-kaca);
+}
+
+@media (max-width: 575.98px) {
+  .hero { padding-top: 6rem; }
+}
